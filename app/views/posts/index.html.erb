@@ -1,10 +1,12 @@
 <h1>All Posts</h1>
+<% raise @posts.inspect %>
 <% @posts.each do |post| %>
+<%= @posts.inspect %>
    <div class="media">
      <div class="media-body">
        <h4 class="media-heading">
-         <%= link_to post.title, post %>
+         <%= link_to post.title, post_path(post) %>
        </h4>
      </div>
    </div>
-<% end %>
+<% end %>s
