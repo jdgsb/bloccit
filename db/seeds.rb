@@ -8,11 +8,6 @@ require 'faker'
    )
  end
 
- Post.create!(
-  title: "Unique",
-  body: "Unique"
-)
-
  posts = Post.all
  
  # Create Comments
@@ -23,9 +18,7 @@ require 'faker'
    )
  end
  
-Comment.create!(
-  body:"Unique"
-  ) 
+Post.find_or_create_by!(:title => "unique create", :body => "comment create") 
 
  puts "Seed finished"
  puts "#{Post.count} posts created"
