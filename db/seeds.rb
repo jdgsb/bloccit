@@ -1,4 +1,5 @@
 require 'faker'
+
  
  # Create Posts
  50.times do
@@ -16,7 +17,8 @@ require 'faker'
      body: Faker::Lorem.paragraph
    )
  end
- 
+
+
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
