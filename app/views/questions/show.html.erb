@@ -4,4 +4,7 @@
 
 <p><%= @question.body %></p>
 
-<p><%= @question.resolved %></p>
+<%= check_box :resolved, @question, class: 'form-control' %>
+<p><%= link_to "Delete", @question, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-success' %></p>
+
+

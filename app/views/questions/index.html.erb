@@ -6,6 +6,8 @@
      <div class="media-body">
        <h4 class="media-heading">
          <%= link_to question.title, question %>
+         <%= check_box :resolved, class: 'form-control' %>
+         <%= link_to "Delete", @question, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-success' %>
        </h4>
      </div>
    </div>
