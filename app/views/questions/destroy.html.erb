@@ -1,7 +1,0 @@
-<h1><%= @question.title %></h1>
-
- <%= link_to "delete", @question, method: :delete, data: { confirm: "Are you sure?" } %>
-
-<p><%= @question.body %></p>
-
-<p><%= link_to check_box_tag(:resolved) %></p>
