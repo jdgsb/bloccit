@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
+  before_filter :load_user
+  before_filter :authenticate_user!
+  after_action :verify_authorized
+
+
+
   def index
-     @posts = Post.all
-     authorize @posts
+    @posts = PostPolicy::Scope.new(current_user, Post).resolve
   end
 
   def show
@@ -39,5 +44,12 @@ class PostsController < ApplicationController
        render :edit
      end
   end
+
+private
+
+ def load_user
+   @user = User.find_by_id(params[:user_id])
+ end
+
 
 end
