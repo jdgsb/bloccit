@@ -11,7 +11,7 @@ class PostPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.where(:published => true)
+        scope.where(:user => user)
       end
     end
   end

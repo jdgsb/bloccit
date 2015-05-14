@@ -4,7 +4,7 @@
  <%= link_to "New Post", new_post_path, class: 'btn btn-success' %>
  <% end %>
 
-<% policy_scope(@user.posts).each do |post| %>
+<% policy_scope(Post).each do |post| %>
 
    <div class="media">
      <div class="media-body">

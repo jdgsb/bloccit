@@ -1,7 +1,4 @@
 class PostsController < ApplicationController
-  before_filter :load_user
-  before_filter :authenticate_user!
-  after_action :verify_authorized
 
 
 
