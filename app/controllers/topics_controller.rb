@@ -36,10 +36,16 @@ class TopicsController < ApplicationController
      @topic = Topic.find(params[:id])
      authorize @topic
      if @topic.update_attributes(params.require(:topic).permit(:name, :description, :public))
-       redirect_to @topic
+       redirect_to @topic, notice: "Topic was edited successfully."
      else
        flash[:error] = "Error saving topic. Please try again."
        render :edit
      end
+   end
+
+   private
+   
+   def topic_params
+    params.require(:topic).permit(:name, :description, :public)
    end
 end
