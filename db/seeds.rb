@@ -37,6 +37,7 @@ require 'faker'
    Post.create!(
      user:   users.sample,
      topic:  topics.sample,
+     summary: summaries.sample,
      title:  Faker::Lorem.sentence,
      body:   Faker::Lorem.paragraph
    )
@@ -51,6 +52,16 @@ require 'faker'
      body: Faker::Lorem.paragraph
    )
  end
+
+75.times do
+   Summary.create!(
+     abstract:         Faker::Lorem.sentence,
+   )
+ end
+
+
+
+
 
  # Create an admin user
  admin = User.new(
@@ -86,3 +97,4 @@ require 'faker'
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
+ puts "#{Summary.count} summaries created"
