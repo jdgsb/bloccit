@@ -45,4 +45,8 @@ config.action_mailer.default_url_options = { host: 'localhost:3000' }
 # Override Action Mailer's 'silent errors' in development
 config.action_mailer.raise_delivery_errors = true
 
+config.assets.cache_store = :null_store  # Disables the Asset cache
+config.sass.cache = false  # Disable the SASS compiler cache
+
+
 end
