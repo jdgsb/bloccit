@@ -1,6 +1,4 @@
-<h1>Create Summary</h1>
-
-<%= form_for @summary, url: topic_post_summaries_path do |f| %>
+<%= form_for [topic, post, summary] do |f| %>
   <div class="form-group">
     <%= f.label :summary %>
     <%= f.text_field :abstract, class: 'form_control', placeholder: "Enter summary" %>

@@ -9,5 +9,11 @@
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
+    <% if policy(@post).edit? && @post.summary.blank? %>
+      <p> You don't have a Summary, make one!</p>
+      <%= render partial: 'summaries/create', locals: { topic: @topic, post: @post, summary: Summary.new(post_id: @post.id)} %>
+    <% else %>
+      <%= link_to "Summary", topic_post_summary_path(@topic, @post), class: 'btn btn-success' %>
+    <% end %>
   </div>
 </div>
