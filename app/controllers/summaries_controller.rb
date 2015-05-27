@@ -5,8 +5,10 @@ class SummariesController < ApplicationController
 
   def create
     @topic = Topic.find(params[:topic_id])
-    @post = @topic.posts
+    @post = Post.find(params[:post_id])
+    puts "here are the #{params}"
     @summary = Summary.new(params.require(:summary).permit(:abstract))
+    @summary.post = @post
     if @summary.save
       flash[:notice] = "Summary was saved."
       redirect_to @topic

@@ -11,9 +11,9 @@
     <% end %>
     <% if policy(@post).edit? && @post.summary.blank? %>
       <p> You don't have a Summary, make one!</p>
-      <%= render partial: 'summaries/create', locals: { topic: @topic, post: @post, summary: Summary.new(post_id: @post.id)} %>
+      <%= render partial: 'summaries/create', locals: { topic: @topic, post: @post, summary: Summary.new(post: @post)} %>
     <% else %>
-      <%= link_to "Summary", topic_post_summary_path(@topic, @post), class: 'btn btn-success' %>
+      <%= link_to "Summary", [@topic, @post, @post.summary], class: 'btn btn-success' %>
     <% end %>
   </div>
 </div>

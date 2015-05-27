@@ -54,7 +54,8 @@ require 'faker'
 
 75.times do
    Summary.create!(
-     abstract:  Faker::Lorem.sentence
+     abstract:  Faker::Lorem.sentence,
+     post: posts.sample
    )
  end
 
