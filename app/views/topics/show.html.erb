@@ -10,15 +10,17 @@
      <% @posts.each do |post| %>
        <div class="media">
          <div class="media-body">
-           <h4 class="media-heading">
+            <h4 class="media-heading">
              <%= link_to (markdown_to_html post.title), [@topic, post] %>
-             <small>
+             <%= image_tag(post.image.tiny.url) if post.image? %>
+            </h4>
+            <small>
                <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
                submitted <%= time_ago_in_words(post.created_at) %> ago by
                <%= post.user.name %><br>
                <%= post.comments.count %> Comments
-           </small>
-           </h4>
+            </small>
+           
          </div>
        </div>
      <% end %>
