@@ -3,27 +3,22 @@
 
 <div class="row">
   <div class="col-md-8">
-    <% if @post.image? %>
-      <div class="col-md-4">
-        <%= image_tag(@post.image.tiny.url) %>
-      </div>
-    <% end %>
-
     <small>
        <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
        submitted <%= time_ago_in_words(@post.created_at) %> ago by
        <%= @post.user.name %>
     </small>
 
-    <% if @post.image? %>
-      <div class="form-group">
-        <p>Add Image</p>
-        <%= image_tag( @post.image.tiny.url ) %>
-      </div>
-    <% end %>
-    
     <p><%= markdown_to_html @post.body %></p>
+
+    <small>
+        <%= image_tag(@post.image.small.url) if @post.image%>
+    </small>  
+    
+    </div>
+    
   </div>
+  </br>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>

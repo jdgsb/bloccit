@@ -17,10 +17,11 @@
      <%= f.label :body %>
      <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
    <% end %>
+   </br>
    <% if post.image? %>
          <div class="form-group">
            <p>Add Image</p>
-           <%= image_tag( post.image.tiny.url ) %>
+           <%= image_tag( post.image.small.url ) %>
          </div>
     <% end %>
     <div class="form-group">
