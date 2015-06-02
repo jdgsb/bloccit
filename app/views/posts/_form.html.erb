@@ -22,11 +22,12 @@
            <p>Add Image</p>
            <%= image_tag( post.image.tiny.url ) %>
          </div>
-       <% end %>
-       <div class="form-group">
-         <%= f.label :image %>
-         <%= f.file_field :image %>
-       </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
    <div class="form-group">
      <%= f.submit "Save", class: 'btn btn-success' %>
    </div>
