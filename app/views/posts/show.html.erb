@@ -11,6 +11,15 @@
 
     <p><%= markdown_to_html @post.body %></p>
 
+     <% if @comments %>
+      <h3>Comments</h3>
+      <%= render @comments%>
+    <% end %>
+
+    <%if policy(@comments).create? %>
+      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post} %>
+    <% end %>
+
     <small>
         <%= image_tag(@post.image.small.url) if @post.image%>
     </small>  
