@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   mount_uploader :image, ImageUploader
 
+  after_create :create_vote
+
   default_scope { order('rank DESC') }
 
   def up_votes
@@ -32,5 +34,11 @@ class Post < ActiveRecord::Base
   validates :body, length: { minimum: 20 }, presence: true
   #validates :topic, presence: true
   #validates :user, presence: true
+
+private
+
+  def create_vote
+    user.votes.create(post_id: self.id, value: 1)
+  end
 
 end
