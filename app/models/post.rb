@@ -27,7 +27,6 @@ class Post < ActiveRecord::Base
   end
 
 
-
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20 }, presence: true
   validates :topic, presence: true
@@ -38,4 +37,10 @@ class Post < ActiveRecord::Base
     user.votes.create(post_id: self.id, value: 1)
   end
 
+  def save_with_initial_vote
+    ActiveRecord::Base.transaction do
+      post.save
+      post.create_vote
+    end
+  end
 end
