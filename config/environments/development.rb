@@ -47,6 +47,6 @@ config.action_mailer.raise_delivery_errors = true
 
 config.assets.cache_store = :null_store  # Disables the Asset cache
 config.sass.cache = false  # Disable the SASS compiler cache
-
+config.raise_delivery_errors = true  #tell Action Mailer to raise informative errors if it fails. This can be very helpful for debugging.
 
 end
