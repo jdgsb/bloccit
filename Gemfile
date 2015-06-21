@@ -55,6 +55,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'rspec-rails', '~> 3.0'
+  gem 'capybara'
 end
 
 gem 'pry-rails', :group => :development
