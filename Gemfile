@@ -73,4 +73,6 @@ gem 'figaro', '1.0'
 
  gem 'fog'
 
-  gem 'will_paginate', '~> 3.0.5'
+ gem 'will_paginate', '~> 3.0.5'
+
+ gem 'newrelic_rpm'
