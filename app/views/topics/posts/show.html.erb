@@ -15,7 +15,7 @@
 
      <% if policy(@comments).show? %>
       <h3>Comments</h3>
-      <%= render @comments%>
+      <%= render partial: 'comments/comment', collection: @comments %>
     <% end %>
     </br>
     <%if policy(@comments).create? %>
