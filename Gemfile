@@ -78,5 +78,5 @@ gem 'figaro', '1.0'
  gem 'newrelic_rpm'
 
  gem 'puma', group: :production
- 
- gem 'thin', group: :development
+
+ gem 'puma', group: :development
