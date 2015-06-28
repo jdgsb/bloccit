@@ -80,3 +80,5 @@ gem 'figaro', '1.0'
  gem 'puma', group: :production
 
  gem 'puma', group: :development
+
+  gem 'factory_girl_rails', '~> 4.0'
