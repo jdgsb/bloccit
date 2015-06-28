@@ -26,11 +26,17 @@ class CommentsController < ApplicationController
     
     if @comment.destroy
       flash[:notice] = "Comment was successfully deleted"
-      redirect_to [@post.topic, @post]
+      
     else
       flash[:error] = "There was an error deleting the comment. Please try agian"
-      redirect_to [@post.topic, @post]
+      
     end
+
+    respond_to do |format|
+       format.html
+       format.js
+    end
+
   end
 
 
