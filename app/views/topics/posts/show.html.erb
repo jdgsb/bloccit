@@ -15,21 +15,18 @@
 
      <% if policy(@comments).show? %>
       <h3>Comments</h3>
-      <%= render partial: 'comments/comment', collection: @comments %>
-    <% end %>
-    </br>
-    <%if policy(@comments).create? %>
-      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post} %>
+        <div class='js-comments'>
+          <%= render partial: 'comments/comment', collection: @comments %>
+        </div>
+
+        <div class='new-comment'>
+          <%= render 'comments/form' %>
+        </div>
+
     <% end %>
 
-    <small>
-        <%= image_tag(@post.image.small.url) if @post.image%>
-    </small>  
-    
-    </div>
-    
-  </div>
-  </br>
+    </br>
+   
   <div class="col-md-4">
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
